@@ -9,6 +9,7 @@ import darkLogoUrl from "../../assets/images/amedos_dark.png";
 import { FormControlLabel } from "@mui/material";
 import ToggleModeSwitch from "../switch/ToggleModeSwitch";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -39,6 +40,7 @@ const SearchIconWrapper = styled("div")(({ theme }) => ({
     outline: "none",
     color: "inherit",
     zIndex: 1,
+    cursor: "pointer",
   },
 }));
 
@@ -64,12 +66,18 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 interface SearchAppBarProps {
   darkMode: boolean;
   toggleDarkMode: () => void;
+  searchKeyword?: string;
+  setSearchKeyword: (keyword: string) => void;
 }
 
 export default function SearchAppBar({
   darkMode,
   toggleDarkMode,
+  searchKeyword,
+  setSearchKeyword,
 }: SearchAppBarProps) {
+  const [inputValue, setInputValue] = useState("");
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" color="default">
@@ -85,7 +93,7 @@ export default function SearchAppBar({
           <form
             onSubmit={(event) => {
               event.preventDefault();
-              console.log("submitted!");
+              setSearchKeyword(inputValue);
             }}
           >
             <Search>
@@ -95,8 +103,13 @@ export default function SearchAppBar({
                 </button>
               </SearchIconWrapper>
               <StyledInputBase
-                placeholder="場所を入力してください"
+                placeholder="市町村名を入力"
                 inputProps={{ "aria-label": "search" }}
+                value={inputValue}
+                // 入力が更新されたら setInputValue に入力値をセット
+                onChange={(event) => {
+                  setInputValue(event.target.value);
+                }}
               />
             </Search>
           </form>

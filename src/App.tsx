@@ -18,6 +18,8 @@ function App() {
   const [darkMode, setDarkMode] = useState(
     localStorage.getItem("darkMode") === "on" ? true : false
   );
+  const [searchKeyword, setSearchKeyword] = useState("");
+
   const toggleDarkMode = () => {
     localStorage.setItem("darkMode", darkMode ? "off" : "on");
     setDarkMode(!darkMode);
@@ -37,9 +39,17 @@ function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <BrowserRouter>
-        <SearchAppBar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
+        <SearchAppBar
+          darkMode={darkMode}
+          toggleDarkMode={toggleDarkMode}
+          searchKeyword={searchKeyword}
+          setSearchKeyword={setSearchKeyword}
+        />
         <Routes>
-          <Route path="/" element={<Home darkMode={darkMode} />} />
+          <Route
+            path="/"
+            element={<Home darkMode={darkMode} searchKeyword={searchKeyword} />}
+          />
         </Routes>
       </BrowserRouter>
     </ThemeProvider>
