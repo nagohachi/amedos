@@ -1,5 +1,5 @@
 import { Box, Button, Hidden, Tooltip } from "@mui/material";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 interface HourData {
   time: string;
@@ -38,20 +38,6 @@ export default function WeatherForecast({
   const handleMouseLeave = () => {
     setHover(false);
   };
-
-  useEffect(() => {
-    if (hover) {
-      const handleTouchOutside = () => {
-        setHover(false);
-      };
-
-      window.addEventListener("touchstart", handleTouchOutside);
-
-      return () => {
-        window.removeEventListener("touchstart", handleTouchOutside);
-      };
-    }
-  }, [hover]);
 
   return (
     <>
@@ -98,6 +84,7 @@ export default function WeatherForecast({
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
               onTouchStart={handleMouseEnter}
+              onTouchEnd={handleMouseLeave}
               sx={{
                 width: { xs: "80px", sm: "auto", md: "100%" },
               }}
