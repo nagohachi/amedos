@@ -22,7 +22,7 @@ export default function WeatherForecast({
     <>
       <Hidden smUp>
         <Button onClick={() => setShowAll(!showAll)}>
-          詳しく見る (1時間ごと){" "}
+          {showAll ? "3時間ごとに表示" : "1時間ごとに表示"}
         </Button>
       </Hidden>
       <Box
