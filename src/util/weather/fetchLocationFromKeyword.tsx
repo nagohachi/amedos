@@ -23,9 +23,9 @@ async function fetchLocationFromKeyword(keyword: string) {
   }
 
   // JSON から緯度経度を取得
-  const lat = location.x._text;
-  const lng = location.y._text;
-  return { lat, lng };
+  const lng = parseFloat(location.x._text);
+  const lat = parseFloat(location.y._text);
+  return { lat, lng } as { lat: number; lng: number };
 }
 
 export default fetchLocationFromKeyword;
