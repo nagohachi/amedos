@@ -58,7 +58,10 @@ function App() {
           setSearchKeyword={setSearchKeyword}
         />
         <Routes>
-          <Route path="/" element={<Home searchKeyword={searchKeyword} />} />
+          <Route
+            path="/amedos/"
+            element={<Home searchKeyword={searchKeyword} />}
+          />
         </Routes>
       </BrowserRouter>
     </ThemeProvider>
