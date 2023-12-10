@@ -61,7 +61,8 @@ function App() {
             { name: "og:type", content: "website" },
             {
               name: "og:image",
-              content: "https://yukihira-pot.github.io/amedos/public/ogp.png",
+              content:
+                "https://raw.githubusercontent.com/yukihira-pot/amedos/main/public/ogp.png",
             },
             { name: "og:site_name", content: "Amedos" },
             {
