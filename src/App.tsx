@@ -75,7 +75,7 @@ function App() {
             {
               name: "twitter:image",
               content:
-                "https://raw.githubusercontent.com/yukihira-pot/amedos/main/public/og.png",
+                "https://raw.githubusercontent.com/yukihira-pot/amedos/main/public/ogp.png",
             },
           ]}
         />
