@@ -80,7 +80,7 @@ export default function SearchAppBar({
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" color="default">
         <Toolbar>
-          <Link to="/">
+          <Link to="/amedos/">
             <img
               src={darkMode ? darkLogoUrl : lightLogoUrl}
               alt="logo"
