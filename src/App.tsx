@@ -9,7 +9,6 @@ import "@fontsource/noto-sans/400.css";
 import "@fontsource/noto-sans/400-italic.css";
 import "./App.scss";
 import { Helmet } from "react-helmet";
-import lightLogoUrl from "./assets/images/amedos_light.png";
 
 declare module "@mui/material/styles" {
   interface Theme {
@@ -60,22 +59,19 @@ function App() {
             { name: "keywords", content: "Amedos" },
             { name: "og:title", content: "Amedos" },
             { name: "og:type", content: "website" },
-            { name: "og:image", content: lightLogoUrl },
+            {
+              name: "og:image",
+              content: "https://yukihira-pot.github.io/amedos/public/ogp.png",
+            },
             { name: "og:site_name", content: "Amedos" },
             {
               name: "og:description",
               content: "Amedos は、京都人流の天気予報サイトです。",
             },
             { name: "twitter:card", content: "summary_large_image" },
-            { name: "twitter:title", content: "Amedos" },
-            {
-              name: "twitter:description",
-              content: "Amedos は、京都人流の天気予報サイトです。",
-            },
             {
               name: "twitter:image",
-              content:
-                "https://raw.githubusercontent.com/yukihira-pot/amedos/main/public/ogp.png",
+              content: "https://yukihira-pot.github.io/amedos/public/ogp.png",
             },
           ]}
         />
