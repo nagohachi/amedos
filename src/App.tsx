@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
+import Home from "./pages/home/Home";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import SearchAppBar from "./components/header/SearchAppBar";
 import { CssBaseline } from "@mui/material";
@@ -59,10 +59,7 @@ function App() {
           setSearchKeyword={setSearchKeyword}
         />
         <Routes>
-          <Route
-            path="/"
-            element={<Home darkMode={darkMode} searchKeyword={searchKeyword} />}
-          />
+          <Route path="/" element={<Home searchKeyword={searchKeyword} />} />
         </Routes>
       </BrowserRouter>
     </ThemeProvider>
