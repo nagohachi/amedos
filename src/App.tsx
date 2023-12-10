@@ -72,7 +72,10 @@ function App() {
               name: "twitter:description",
               content: "Amedos は、京都人流の天気予報サイトです。",
             },
-            { name: "twitter:image", content: lightLogoUrl },
+            {
+              name: "twitter:image",
+              content: "https://yukihira-pot.github.io/amedos/public/og.png",
+            },
           ]}
         />
       </div>
