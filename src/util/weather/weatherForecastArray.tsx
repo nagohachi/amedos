@@ -1,5 +1,5 @@
-import { Box, Hidden } from "@mui/material";
-import { Typography } from "@mui/material";
+import { Box, Button, Hidden } from "@mui/material";
+import { useState } from "react";
 
 interface HourData {
   time: string;
@@ -16,8 +16,15 @@ export default function WeatherForecast({
 }: {
   hourDataArray: HourData[];
 }) {
+  const [showAll, setShowAll] = useState(false);
+
   return (
     <>
+      <Hidden smUp>
+        <Button onClick={() => setShowAll(!showAll)}>
+          詳しく見る (1時間ごと){" "}
+        </Button>
+      </Hidden>
       <Box
         sx={{
           display: { xs: "flex", sm: "none" },
@@ -34,7 +41,11 @@ export default function WeatherForecast({
         <Box
           key={index}
           sx={{
-            display: { xs: "flex", sm: "block", md: "block" },
+            display: {
+              xs: showAll || index % 3 === 0 ? "flex" : "none",
+              sm: "block",
+              md: "block",
+            },
             textAlign: "center",
             justifyContent: { xs: "space-around" },
             alignItems: { xs: "center" },

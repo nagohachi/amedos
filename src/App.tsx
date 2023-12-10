@@ -34,7 +34,7 @@ function App() {
     palette: {
       mode: darkMode ? "dark" : "light",
       primary: {
-        main: darkMode ? "#655980" : "#ccb3ff",
+        main: darkMode ? "#ffffff" : "#ccb3ff",
       },
     },
     breakpoints: {
