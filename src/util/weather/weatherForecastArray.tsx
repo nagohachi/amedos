@@ -1,4 +1,4 @@
-import { Box, Button, Hidden } from "@mui/material";
+import { Box, Button, Hidden, Tooltip } from "@mui/material";
 import { useState } from "react";
 
 interface HourData {
@@ -11,12 +11,33 @@ interface HourData {
   chance_of_rain: number;
 }
 
+function getWeatherCondition(hourData: HourData) {
+  if (
+    hourData.condition.text.includes("cloud") ||
+    hourData.condition.text.includes("Overcast")
+  ) {
+    return "焚き火して雲さんにぶぶ漬け届けたりましょ";
+  } else if (hourData.chance_of_rain > 50) {
+    return "蛙さんが好きそうな天気どすなあ、私らのお化粧に文句でもあるんやろか";
+  } else {
+    return "カラッとしてお肌が粉ォ吹きそうどす、お天道さんええ加減にしいや";
+  }
+}
+
 export default function WeatherForecast({
   hourDataArray,
 }: {
   hourDataArray: HourData[];
 }) {
   const [showAll, setShowAll] = useState(false);
+  const [hover, setHover] = useState(false);
+  const handleMouseEnter = () => {
+    setHover(true);
+  };
+
+  const handleMouseLeave = () => {
+    setHover(false);
+  };
 
   return (
     <>
@@ -55,14 +76,20 @@ export default function WeatherForecast({
             {new Date(hourData.time).getHours()}
             <Hidden smUp>時</Hidden>
           </div>
-          <Box
-            component="img"
-            src={hourData.condition.icon}
-            alt={hourData.condition.text}
-            sx={{
-              width: { xs: "80px", sm: "auto", md: "100%" },
-            }}
-          />
+          <Tooltip title={hover ? getWeatherCondition(hourData) : ""}>
+            <Box
+              component="img"
+              src={hourData.condition.icon}
+              alt={hourData.condition.text}
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+              onTouchStart={handleMouseEnter}
+              onTouchEnd={handleMouseLeave}
+              sx={{
+                width: { xs: "80px", sm: "auto", md: "100%" },
+              }}
+            />
+          </Tooltip>
           <div>{hourData.chance_of_rain} %</div>
         </Box>
       )) || []}
