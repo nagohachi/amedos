@@ -72,6 +72,10 @@ export default function Home({ searchKeyword }: HomeProps) {
           <CircularProgress />
         </Box>
       )}
+      {!loading &&
+        (searchKeyword === undefined || searchKeyword.length === 0) && (
+          <h3>日本の市町村名などを入力し、検索してください。</h3>
+        )}
       {searchKeyword !== undefined &&
         searchKeyword.length > 0 &&
         errorMessage === "" &&
