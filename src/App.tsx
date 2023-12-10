@@ -33,6 +33,15 @@ function App() {
         main: darkMode ? "#655980" : "#ccb3ff",
       },
     },
+    breakpoints: {
+      values: {
+        xs: 0,
+        sm: 600,
+        md: 900,
+        lg: 1200,
+        xl: 1536,
+      },
+    },
   });
 
   return (
