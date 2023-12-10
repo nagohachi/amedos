@@ -120,6 +120,26 @@ export default function Home({ darkMode, searchKeyword }: HomeProps) {
                   />
                 </AccordionDetails>
               </Accordion>
+              <Accordion>
+                <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                  明日の天気
+                </AccordionSummary>
+                <AccordionDetails>
+                  <WeatherForecast
+                    hourDataArray={weather.forecast.forecastday[1].hour}
+                  />
+                </AccordionDetails>
+              </Accordion>
+              <Accordion>
+                <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+                  明後日の天気
+                </AccordionSummary>
+                <AccordionDetails>
+                  <WeatherForecast
+                    hourDataArray={weather.forecast.forecastday[2].hour}
+                  />
+                </AccordionDetails>
+              </Accordion>
             </Box>
 
             <Box
@@ -127,6 +147,7 @@ export default function Home({ darkMode, searchKeyword }: HomeProps) {
                 display: { xs: "none", sm: "block", md: "block" },
               }}
             >
+              今日の天気
               <Container
                 maxWidth={false}
                 sx={{
@@ -138,6 +159,34 @@ export default function Home({ darkMode, searchKeyword }: HomeProps) {
               >
                 <WeatherForecast
                   hourDataArray={weather.forecast.forecastday[0].hour}
+                />
+              </Container>
+              明日の天気
+              <Container
+                maxWidth={false}
+                sx={{
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "flex-start",
+                  overflow: "auto",
+                }}
+              >
+                <WeatherForecast
+                  hourDataArray={weather.forecast.forecastday[1].hour}
+                />
+              </Container>
+              明後日の天気
+              <Container
+                maxWidth={false}
+                sx={{
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "flex-start",
+                  overflow: "auto",
+                }}
+              >
+                <WeatherForecast
+                  hourDataArray={weather.forecast.forecastday[2].hour}
                 />
               </Container>
             </Box>

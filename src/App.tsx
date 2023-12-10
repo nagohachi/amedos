@@ -4,6 +4,10 @@ import Home from "./pages/Home";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import SearchAppBar from "./components/header/SearchAppBar";
 import { CssBaseline } from "@mui/material";
+import "@fontsource/noto-sans"; // Defaults to weight 400
+import "@fontsource/noto-sans/400.css"; // Specify weight
+import "@fontsource/noto-sans/400-italic.css"; // Specify weight and style
+import "./App.scss";
 
 declare module "@mui/material/styles" {
   interface Theme {
