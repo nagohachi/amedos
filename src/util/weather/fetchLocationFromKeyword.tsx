@@ -18,14 +18,11 @@ async function fetchLocationFromKeyword(keyword: string) {
   // location が undefined の場合は、エラーを投げる
   if (!location) {
     throw new Error(
-      "有効なキーワードではありません。市町村名などを入力してください。"
+      "有効なキーワードではありません。日本の市町村名などを入力してください。"
     );
   }
 
-  // JSON から緯度経度を取得
-  const lng = parseFloat(location.x._text);
-  const lat = parseFloat(location.y._text);
-  return { lat, lng } as { lat: number; lng: number };
+  return location;
 }
 
 export default fetchLocationFromKeyword;

@@ -4,9 +4,9 @@ import Home from "./pages/home/Home";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import SearchAppBar from "./components/header/SearchAppBar";
 import { CssBaseline } from "@mui/material";
-import "@fontsource/noto-sans"; // Defaults to weight 400
-import "@fontsource/noto-sans/400.css"; // Specify weight
-import "@fontsource/noto-sans/400-italic.css"; // Specify weight and style
+import "@fontsource/noto-sans";
+import "@fontsource/noto-sans/400.css";
+import "@fontsource/noto-sans/400-italic.css";
 import "./App.scss";
 
 declare module "@mui/material/styles" {
@@ -40,9 +40,9 @@ function App() {
     breakpoints: {
       values: {
         xs: 0,
-        sm: 600,
-        md: 900,
-        lg: 1200,
+        sm: 1000,
+        md: 1300,
+        lg: 1500,
         xl: 1536,
       },
     },
@@ -55,7 +55,6 @@ function App() {
         <SearchAppBar
           darkMode={darkMode}
           toggleDarkMode={toggleDarkMode}
-          searchKeyword={searchKeyword}
           setSearchKeyword={setSearchKeyword}
         />
         <Routes>

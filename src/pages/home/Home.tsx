@@ -19,6 +19,7 @@ interface HomeProps {
 export default function Home({ searchKeyword }: HomeProps) {
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const [locationStr, setLocationStr] = useState("");
   const [weather, setWeather] = useState({} as any);
   const days = ["今日の天気", "明日の天気", "明後日の天気"];
 
@@ -30,13 +31,12 @@ export default function Home({ searchKeyword }: HomeProps) {
         // ありがたみを味わわせるために、0.5 秒遅延させる
         await new Promise((resolve) => setTimeout(resolve, 500));
         const location = await fetchLocationFromKeyword(searchKeyword);
-        setWeather(
-          await fetchWeatherFromLocation({
-            lat: location.lat,
-            lng: location.lng,
-          })
-        );
-        console.log("weather", weather);
+        const weather = await fetchWeatherFromLocation({
+          lat: location.y._text,
+          lng: location.x._text,
+        });
+        setLocationStr(location.prefecture._text + location.city._text);
+        setWeather(weather);
         setErrorMessage("");
       } catch (err) {
         if (err instanceof Error) {
@@ -77,7 +77,7 @@ export default function Home({ searchKeyword }: HomeProps) {
         weather.location !== undefined &&
         !loading && (
           <>
-            <h3>「{searchKeyword}」の 3 日間の天気予報どす。</h3>
+            <h3>「{locationStr}」の 3 日間の天気予報どす。</h3>
             <Box
               sx={{
                 display: { xs: "block", sm: "none", md: "none" },

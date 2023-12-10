@@ -66,14 +66,12 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 interface SearchAppBarProps {
   darkMode: boolean;
   toggleDarkMode: () => void;
-  searchKeyword?: string;
   setSearchKeyword: (keyword: string) => void;
 }
 
 export default function SearchAppBar({
   darkMode,
   toggleDarkMode,
-  searchKeyword,
   setSearchKeyword,
 }: SearchAppBarProps) {
   const [inputValue, setInputValue] = useState("");
