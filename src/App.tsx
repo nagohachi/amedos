@@ -40,7 +40,7 @@ function App() {
     breakpoints: {
       values: {
         xs: 0,
-        sm: 1000,
+        sm: 800,
         md: 1300,
         lg: 1500,
         xl: 1536,

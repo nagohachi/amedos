@@ -1,4 +1,5 @@
 import { Box, Hidden } from "@mui/material";
+import { Typography } from "@mui/material";
 
 interface HourData {
   time: string;
@@ -16,28 +17,44 @@ export default function WeatherForecast({
   hourDataArray: HourData[];
 }) {
   return (
-    (hourDataArray || []).map((hourData, index) => (
+    <>
       <Box
-        key={index}
         sx={{
-          display: { xs: "flex", sm: "block", md: "block" },
+          display: { xs: "flex", sm: "none" },
           textAlign: "center",
+          justifyContent: { xs: "space-around" },
+          alignItems: { xs: "center" },
         }}
       >
-        <div>
-          {new Date(hourData.time).getHours()}
-          <Hidden smUp>時</Hidden>
-        </div>
-        <Box
-          component="img"
-          src={hourData.condition.icon}
-          alt={hourData.condition.text}
-          sx={{
-            width: { xs: "40px", sm: "auto", md: "100%" },
-          }}
-        />
-        <div>{hourData.chance_of_rain} %</div>
+        <h4>時刻</h4>
+        <h4>天気</h4>
+        <h4>降水確率</h4>
       </Box>
-    )) || []
+      {(hourDataArray || []).map((hourData, index) => (
+        <Box
+          key={index}
+          sx={{
+            display: { xs: "flex", sm: "block", md: "block" },
+            textAlign: "center",
+            justifyContent: { xs: "space-around" },
+            alignItems: { xs: "center" },
+          }}
+        >
+          <div>
+            {new Date(hourData.time).getHours()}
+            <Hidden smUp>時</Hidden>
+          </div>
+          <Box
+            component="img"
+            src={hourData.condition.icon}
+            alt={hourData.condition.text}
+            sx={{
+              width: { xs: "80px", sm: "auto", md: "100%" },
+            }}
+          />
+          <div>{hourData.chance_of_rain} %</div>
+        </Box>
+      )) || []}
+    </>
   );
 }
