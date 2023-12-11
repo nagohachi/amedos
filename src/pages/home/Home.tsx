@@ -35,7 +35,6 @@ export default function Home({ searchKeyword }: HomeProps) {
           lat: location.y._text,
           lng: location.x._text,
         });
-        console.log(weather.forecast.forecastday[0]);
         setLocationStr(location.prefecture._text + location.city._text);
         setWeather(weather);
         setErrorMessage("");
