@@ -31,10 +31,10 @@ export default function WeatherForecast({
 }) {
   const [showAll, setShowAll] = useState(false);
   const [hover, setHover] = useState(false);
+
   const handleMouseEnter = () => {
     setHover(true);
   };
-
   const handleMouseLeave = () => {
     setHover(false);
   };
@@ -42,7 +42,14 @@ export default function WeatherForecast({
   return (
     <>
       <Hidden smUp>
-        <Button onClick={() => setShowAll(!showAll)}>
+        <Button
+          onClick={() => setShowAll(!showAll)}
+          sx={{
+            border: "1px solid #beb8cc",
+            color: "inherit",
+            fontFamily: "inherit",
+          }}
+        >
           {showAll ? "3時間ごとに表示" : "1時間ごとに表示"}
         </Button>
       </Hidden>
