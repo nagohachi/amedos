@@ -9,6 +9,7 @@ import "@fontsource/noto-sans/400.css";
 import "@fontsource/noto-sans/400-italic.css";
 import "./App.scss";
 import { Helmet } from "react-helmet";
+import lightLogoUrl from "./assets/images/amedos_light.png";
 
 declare module "@mui/material/styles" {
   interface Theme {
@@ -61,8 +62,7 @@ function App() {
             { name: "og:type", content: "website" },
             {
               name: "og:image",
-              content:
-                "https://raw.githubusercontent.com/yukihira-pot/amedos/main/public/ogp.png",
+              content: lightLogoUrl,
             },
             { name: "og:site_name", content: "Amedos" },
             {
@@ -72,7 +72,7 @@ function App() {
             { name: "twitter:card", content: "summary_large_image" },
             {
               name: "twitter:image",
-              content: "https://yukihira-pot.github.io/amedos/public/ogp.png",
+              content: lightLogoUrl,
             },
           ]}
         />
