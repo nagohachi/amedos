@@ -8,7 +8,7 @@ import "@fontsource/noto-sans";
 import "@fontsource/noto-sans/400.css";
 import "@fontsource/noto-sans/400-italic.css";
 import "./App.scss";
-import { Helmet } from "react-helmet";
+// import { Helmet } from "react-helmet";
 
 declare module "@mui/material/styles" {
   interface Theme {
@@ -51,7 +51,7 @@ function App() {
 
   return (
     <>
-      <div>
+      {/* <div>
         <Helmet
           title="Amedos"
           meta={[
@@ -70,14 +70,14 @@ function App() {
               property: "og:image",
               content: "https://yukihira-pot.github.io/amedos/ogp.png",
             },
-            // { name: "twitter:card", content: "summary_large_image" },
-            // {
-            //   name: "twitter:image",
-            //   content: "https://yukihira-pot.github.io/amedos/ogp.png",
-            // },
+            { name: "twitter:card", content: "summary_large_image" },
+            {
+              name: "twitter:image",
+              content: "https://yukihira-pot.github.io/amedos/ogp.png",
+            },
           ]}
         />
-      </div>
+      </div> */}
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <BrowserRouter>
