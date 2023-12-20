@@ -55,18 +55,20 @@ function App() {
         <Helmet
           title="Amedos"
           meta={[
-            { name: "description", content: "Amedos" },
-            { name: "keywords", content: "Amedos" },
-            { name: "og:title", content: "Amedos" },
-            { name: "og:type", content: "website" },
+            { property: "og:type", content: "website" },
+            { property: "og:title", content: "Amedos" },
+            {
+              property: "description",
+              content: "Amedos は、京都人流の天気予報サイトです。",
+            },
+            {
+              property: "og:url",
+              content: "https://yukihira-pot.github.io/amedos/",
+            },
+            { property: "og.site_name", content: "Amedos" },
             {
               name: "og:image",
               content: "https://yukihira-pot.github.io/amedos/ogp.png",
-            },
-            { name: "og:site_name", content: "Amedos" },
-            {
-              name: "og:description",
-              content: "Amedos は、京都人流の天気予報サイトです。",
             },
             { name: "twitter:card", content: "summary_large_image" },
             {
