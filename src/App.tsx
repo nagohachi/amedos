@@ -58,14 +58,14 @@ function App() {
             { property: "og:type", content: "website" },
             { property: "og:title", content: "Amedos" },
             {
-              property: "description",
+              property: "og:description",
               content: "Amedos は、京都人流の天気予報サイトです。",
             },
             {
               property: "og:url",
               content: "https://yukihira-pot.github.io/amedos/",
             },
-            { property: "og.site_name", content: "Amedos" },
+            { property: "og:site_name", content: "Amedos" },
             {
               property: "og:image",
               content: "https://yukihira-pot.github.io/amedos/ogp.png",
