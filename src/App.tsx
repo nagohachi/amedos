@@ -67,7 +67,7 @@ function App() {
             },
             { property: "og.site_name", content: "Amedos" },
             {
-              name: "og:image",
+              property: "og:image",
               content: "https://yukihira-pot.github.io/amedos/ogp.png",
             },
             { name: "twitter:card", content: "summary_large_image" },
